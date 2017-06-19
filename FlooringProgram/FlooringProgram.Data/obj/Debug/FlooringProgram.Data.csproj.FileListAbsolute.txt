@@ -1,0 +1,7 @@
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\FinalExam\FlooringProgram\FlooringProgram.Data\bin\Debug\FlooringProgram.Data.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\FinalExam\FlooringProgram\FlooringProgram.Data\bin\Debug\FlooringProgram.Data.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\FinalExam\FlooringProgram\FlooringProgram.Data\bin\Debug\FlooringProgram.Models.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\FinalExam\FlooringProgram\FlooringProgram.Data\bin\Debug\FlooringProgram.Models.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\FinalExam\FlooringProgram\FlooringProgram.Data\obj\Debug\FlooringProgram.Data.csprojResolveAssemblyReference.cache
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\FinalExam\FlooringProgram\FlooringProgram.Data\obj\Debug\FlooringProgram.Data.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\FinalExam\FlooringProgram\FlooringProgram.Data\obj\Debug\FlooringProgram.Data.pdb
