@@ -1,0 +1,9 @@
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\obj\Debug\Battleship.Tests.csprojResolveAssemblyReference.cache
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\bin\Debug\Battleship.Tests.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\bin\Debug\Battleship.Tests.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\bin\Debug\BattleShip.BLL.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\bin\Debug\nunit.framework.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\bin\Debug\BattleShip.BLL.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\bin\Debug\nunit.framework.xml
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\obj\Debug\Battleship.Tests.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\Battleship.Tests\obj\Debug\Battleship.Tests.pdb

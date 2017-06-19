@@ -1,0 +1,10 @@
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\bin\Debug\BattleShip.UITests.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\bin\Debug\BattleShip.UITests.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\bin\Debug\BattleShip.UI.exe
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\bin\Debug\BattleShip.BLL.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\bin\Debug\BattleShip.UI.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\bin\Debug\BattleShip.BLL.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\obj\Debug\BattleShip.UITests.csprojResolveAssemblyReference.cache
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\obj\Debug\BattleShip.UITests.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UITests\obj\Debug\BattleShip.UITests.pdb

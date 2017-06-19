@@ -1,0 +1,9 @@
+C:\Users\Public\Documents\BitBucket\Microsoft\Labs\ExistingCode\Battleship\BattleShip_Start\BattleShip.UI\bin\Debug\BattleShip.UI.exe.config
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UI\bin\Debug\BattleShip.UI.exe.config
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UI\bin\Debug\BattleShip.UI.exe
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UI\bin\Debug\BattleShip.UI.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UI\obj\Debug\BattleShip.UI.csprojResolveAssemblyReference.cache
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UI\obj\Debug\BattleShip.UI.exe
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UI\obj\Debug\BattleShip.UI.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UI\bin\Debug\BattleShip.BLL.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.UI\bin\Debug\BattleShip.BLL.pdb

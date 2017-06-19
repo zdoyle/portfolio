@@ -1,0 +1,5 @@
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.BLL\obj\Debug\BattleShip.BLL.csprojResolveAssemblyReference.cache
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.BLL\bin\Debug\BattleShip.BLL.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.BLL\bin\Debug\BattleShip.BLL.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.BLL\obj\Debug\BattleShip.BLL.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\OOP\Section2\BattleShip_Start\BattleShip.BLL\obj\Debug\BattleShip.BLL.pdb
