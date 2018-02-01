@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNet.Identity
+@using GuildCars.Data.Factories.AdminRepositories
+@using GuildCars.UI.Models.Extensions
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello, " + EmployeesRepositoryFactory.GetRepository().GetById(int.Parse(User.Identity.GetEmployeeId())).FirstName + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+}

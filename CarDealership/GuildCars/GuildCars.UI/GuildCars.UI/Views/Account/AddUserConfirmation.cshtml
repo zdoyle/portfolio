@@ -1,0 +1,26 @@
+﻿@model String
+
+@{ 
+    ViewBag.Title = "User Added!";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>You have successfully added user: @Model</p>
+        <p><small><em>If you are not redirected to the homepage in 5 seconds, @Html.ActionLink("click here.", "Index", "Home")</em></small></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        setTimeout(function () {
+            window.location.href = '@Url.Action("Index", "Home")';
+        }, 5000);
+    });
+</script>

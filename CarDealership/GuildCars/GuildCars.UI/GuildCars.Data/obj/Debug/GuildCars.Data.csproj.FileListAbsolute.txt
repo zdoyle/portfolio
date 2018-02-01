@@ -1,0 +1,7 @@
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\DDWA\FinalExam\GuildCars\GuildCars.UI\GuildCars.Data\bin\Debug\GuildCars.Data.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\DDWA\FinalExam\GuildCars\GuildCars.UI\GuildCars.Data\bin\Debug\GuildCars.Data.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\DDWA\FinalExam\GuildCars\GuildCars.UI\GuildCars.Data\bin\Debug\GuildCars.Models.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\DDWA\FinalExam\GuildCars\GuildCars.UI\GuildCars.Data\bin\Debug\GuildCars.Models.pdb
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\DDWA\FinalExam\GuildCars\GuildCars.UI\GuildCars.Data\obj\Debug\GuildCars.Data.csprojResolveAssemblyReference.cache
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\DDWA\FinalExam\GuildCars\GuildCars.UI\GuildCars.Data\obj\Debug\GuildCars.Data.dll
+C:\Users\zdoyle\_coding\_repos\zack-doyle-individual-work\DDWA\FinalExam\GuildCars\GuildCars.UI\GuildCars.Data\obj\Debug\GuildCars.Data.pdb

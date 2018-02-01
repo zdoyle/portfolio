@@ -1,0 +1,375 @@
+﻿@model GuildCars.UI.Models.ViewModels.UpdateVehicleVM
+
+@{
+    ViewBag.Title = "Update Vehicle";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title <small><em>(VIN: @Model.VIN)</em></small></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("UpdateVehicle", "Admin", FormMethod.Post, new { @class = "form-horizontal", @id = "update-vehicle-form", enctype = "multipart/form-data" }))
+        {
+            <div class="col-xs-12 col-md-8">
+
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.MakeName, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                    @Html.LabelFor(m => m.ModelName, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            @Html.HiddenFor(m => m.VehicleId)
+                            <select id="update-vehicle-make-dropdown"
+                                    class="form-control btn btn-default"
+                                    name="MakeName">
+                                <option disabled>-Make-</option>
+                                @foreach (var make in Model.MakeItems)
+                                {
+                                    if (make.Text == Model.MakeName)
+                                    {
+                                        <option selected value="@make.Value">@make.Text</option>
+                                    }
+
+                                    else
+                                    {
+                                        <option value="@make.Value">@make.Text</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-xs-6">
+                            <select id="update-vehicle-model-dropdown"
+                                    class="form-control btn btn-default"
+                                    name="ModelName"
+                                    data-val="true"
+                                    data-val-required="The Model Name field is required.">
+                                <option disabled>-Model-</option>
+                                @foreach (var makeModel in Model.MakeModels)
+                                {
+                                    if (makeModel.Make == Model.MakeName)
+                                    {
+                                        if (makeModel.Model == Model.ModelName)
+                                        {
+                                            <option selected value="@makeModel.Model">@makeModel.Model</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@makeModel.Model">@makeModel.Model</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                            <div class="text-danger">@Html.ValidationMessageFor(m => m.ModelName)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.ModelYear, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                    @Html.LabelFor(m => m.BodyStyleId, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.ModelYear, new { @class = "form-control", @id = "update-vehicle-modelYear", @placeholder = "Model Year", @value = Model.ModelYear.ToString() })
+                            <div class="text-danger">@Html.ValidationMessageFor(m => m.ModelYear)</div>
+
+                        </div>
+                        <div class="col-xs-6">
+                            <select id="update-vehicle-bodyStyle-dropdown"
+                                    class="form-control btn btn-default"
+                                    name="BodyStyleId">
+                                <option disabled>-Body Style-</option>
+                                @foreach (var bs in Model.BodyStyleItems)
+                                {
+                                    if (bs.Value == Model.BodyStyleId.ToString())
+                                    {
+                                        <option selected value="@bs.Value">@bs.Text</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@bs.Value">@bs.Text</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.Mileage, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                    @Html.LabelFor(m => m.VehicleTypeId, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.Mileage, new { @class = "form-control", @id = "update-vehicle-mileage", @placeholder = "Mileage", @value = Model.Mileage.ToString() })
+                            <div class="text-danger">@Html.ValidationMessageFor(m => m.Mileage)</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <!--this field is populated dynamically when user enters mileage-->
+                            <select id="update-vehicle-vehicleType-dropdown"
+                                    class="form-control btn btn-default"
+                                    name="VehicleTypeId">
+                                <option disabled>-Vehicle Type-</option>
+                                @foreach (var vt in Model.VehicleTypeItems)
+                                {
+                                    if (vt.Value == Model.VehicleTypeId.ToString())
+                                    {
+                                        <option selected value="@vt.Value">@vt.Text</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@vt.Value">@vt.Text</option>
+                                    }
+                                }
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.ColorId, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                    @Html.LabelFor(m => m.InteriorColorId, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            <select id="update-vehicle-color-dropdown"
+                                    class="form-control btn btn-default"
+                                    name="ColorId">
+                                <option disabled selected>-Color-</option>
+                                @foreach (var color in Model.ColorItems)
+                                {
+                                    if (color.Name == "White" || color.Name == "Tan" || color.Name == "Silver" || color.Name == "Gray")
+                                    {
+                                        if (color.ColorId == Model.ColorId)
+                                        {
+                                            <option selected value="@color.ColorId" style="background-color:@color.ColorCode; color: black">@color.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@color.ColorId" style="background-color:@color.ColorCode; color: black">@color.Name</option>
+                                        }
+                                    }
+
+                                    else
+                                    {
+                                        if (color.ColorId == Model.ColorId)
+                                        {
+                                            <option selected value="@color.ColorId" style="background-color:@color.ColorCode; color: white">@color.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@color.ColorId" style="background-color:@color.ColorCode; color: white">@color.Name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-xs-6">
+                            <select id="update-vehicle-interiorColor-dropdown"
+                                    class="form-control btn btn-default"
+                                    name="InteriorColorId">
+                                <option disabled selected>-Interior Color-</option>
+                                @foreach (var color in Model.InteriorColorItems)
+                                {
+                                    if (color.Name == "Cream" || color.Name == "Tan")
+                                    {
+                                        if (color.InteriorColorId == Model.InteriorColorId)
+                                        {
+                                            <option selected value="@color.InteriorColorId" style="background-color:@color.ColorCode; color: black">@color.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@color.InteriorColorId" style="background-color:@color.ColorCode; color: black">@color.Name</option>
+                                        }
+                                    }
+
+                                    else
+                                    {
+                                        if (color.InteriorColorId == Model.InteriorColorId)
+                                        {
+                                            <option selected value="@color.InteriorColorId" style="background-color:@color.ColorCode; color: white">@color.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@color.InteriorColorId" style="background-color:@color.ColorCode; color: white">@color.Name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.TransmissionTypeId, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            <select id="update-vehicle-tranmissionType-dropdown"
+                                    class="form-control btn btn-default"
+                                    name="TransmissionTypeId">
+                                <option disabled>-Transmission Type-</option>
+                                @foreach (var tt in Model.TransmissionTypeItems)
+                                {
+                                    if (tt.Value == Model.TransmissionTypeId.ToString())
+                                    {
+                                        <option selected value="@tt.Value">@tt.Text</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@tt.Value">@tt.Text</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-xs-6">
+                            @Html.HiddenFor(m => m.VIN)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.MSRP, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                    @Html.LabelFor(m => m.SalePrice, new { @class = "control-label col-xs-6", @style = "text-align:left;" })
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.MSRP, new { @class = "form-control", @id = "update-vehicle-msrp", @placeholder = "MSRP", @value = Model.MSRP.ToString() })
+                            <div class="text-danger">@Html.ValidationMessageFor(m => m.MSRP)</div>
+                        </div>
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.SalePrice, new { @class = "form-control", @id = "update-vehicle-salePrice", @placeholder = "Sale Price", @value = Model.SalePrice.ToString() })
+                            <div class="text-danger">@Html.ValidationMessageFor(m => m.SalePrice)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.Description, new { @class = "control-label col-xs-12", @style = "text-align:left;" })
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @id = "update-vehicle-msrp", @placeholder = "MSRP", @rows = "10", @value = Model.Description })
+                            <div class="text-danger">@Html.ValidationMessageFor(m => m.Description)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.IsFeatured, new { @class = "control-label col-xs-12", @style = "text-align:left;" })
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            <div class="">
+                                @if (Model.IsFeatured)
+                                {
+                                    @Html.CheckBoxFor(m => m.IsFeatured, true)
+                                }
+                                else
+                                {
+                                    @Html.CheckBoxFor(m => m.IsFeatured, false)
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            <div class="col-xs-12"><h4>New Vehicle Image Upload?</h4></div>
+                            <div class="col-xs-12">
+                                <div class="input-group">
+                                    <label class="input-group-btn">
+                                        <span id="browse-button" class="btn btn-primary">
+                                            Browse&hellip; <input type="file" style="display: none;" name="file">
+                                        </span>
+                                    </label>
+                                    <input type="text" class="form-control" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <input type="submit" class="btn btn-primary" value="Submit Changes"/>
+                    </div>
+                </div>
+
+            </div>
+        }
+        @using (Html.BeginForm("Delete", "Admin", FormMethod.Post, new { @class = "form-horizontal", @id = "delete-vehicle-form" }))
+        {
+            @Html.HiddenFor(m => m.VehicleId)
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <input type="submit" class="btn btn-danger" value="Delete Vehicle from Inventory" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#update-vehicle-vehicleType-dropdown').prop('disabled', true);
+
+        $('#update-vehicle-form select').each(function () {
+            $(this).children('option').first().prop('disabled', true);
+        });
+
+        $('#update-vehicle-mileage').on('input', function (e) {
+            if (parseInt($('#update-vehicle-mileage').val()) < 1000) {
+                $('#update-vehicle-vehicleType-dropdown').val('1');
+            }
+            else if (parseInt($('#update-vehicle-mileage').val()) >= 1000) {
+                $('#update-vehicle-vehicleType-dropdown').val('2');
+            }
+            else {
+                $('#update-vehicle-vehicleType-dropdown').val('');
+            }
+        });
+
+        $('#update-vehicle-form').submit(function () {
+            $('#update-vehicle-vehicleType-dropdown').prop('disabled', false);
+
+            setTimeout(function () {
+                $('#add-vehicle-vehicleType-dropdown').prop('disabled', true);
+            }, 1000);
+        });
+
+        $(document).on('change', ':file', function () {
+            var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            input.trigger('fileselect', [numFiles, label]);
+        });
+
+        $(document).ready(function () {
+            $(':file').on('fileselect', function (event, numFiles, label) {
+
+                var input = $(this).parents('.input-group').find(':text'),
+                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+                if (input.length) {
+                    input.val(log);
+                } else {
+                    if (log) alert(log);
+                }
+
+            });
+        });
+
+        $('#delete-vehicle-form input[type=submit]').click(function () {
+            return confirm('Are you sure you want to delete vehicle from inventory?');
+        });
+    });
+</script>

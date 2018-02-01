@@ -1,0 +1,131 @@
+﻿@model GuildCars.Models.Queries.VehicleRequestItem
+
+@{
+    ViewBag.Title = "Vehicle Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="details-list-group-items-container">
+            <div class="detailsListGroupItems">
+                <div class="col-xs-12">
+                    <h2 class="text-left">@Model.ModelYear @Model.Make @Model.Model</h2>
+                </div>
+                <div class="col-lg-3 col-xs-12 text-center">
+                    <img class="vehicleImages" src=@Url.Content("~/Images/" + Model.ImageFileName) alt="@Model.ModelYear @Model.Make @Model.Model" />
+                </div>
+                <div class="vehicle-details-table col-xs-12 col-lg-9">
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Body Style:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@Model.BodyStyle</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Interior:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@Model.InteriorColor <span class="colorBar" style="background-color:@Model.InteriorColorCode;"></span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Sale Price:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@String.Format("{0:C0}", Model.SalePrice)</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Trans:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@Model.TransmissionType</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Mileage:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@(Model.Mileage < 1000 ? "New" : @String.Format("{0:n0}", Model.Mileage))</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>MSRP:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@String.Format("{0:C0}", Model.MSRP)</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Color:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@Model.Color <span class="colorBar" style="background-color:@Model.ColorCode;"></span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>VIN #:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-6">
+                        <div class="text-left">
+                            <p>@Model.VIN</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="text-right">
+                            <p><strong>Description:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="text-left">
+                            <p>@Model.Description</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-offset-8 col-xs-4">
+                        <div class="col-xs-12">
+                            @if (!Model.IsSold)
+                            {
+                                <input type="button" id="vehicle-@Model.VehicleId-contact-button" style="margin-top:15px;" class="btn btn-default col-xs-12 pull-right" value="Contact Us" onclick="location.href='@Url.Action("Contact", "Home", new { id = Model.VIN })'" />
+                            }
+
+                            else
+                            {
+                                <p style="margin-top:15px;" class="col-xs-12 pull-right"><em><strong>Unavailable - Sold</strong></em></p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

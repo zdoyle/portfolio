@@ -1,0 +1,31 @@
+﻿@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href=@Url.Content("~/Admin/Index")>
+            Admin
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Vehicles", "Vehicles", "Admin")</li>
+            <li>@Html.ActionLink("Makes/Models in Stock", "MakesModels", "Admin")</li>
+            <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+            <li>@Html.ActionLink("Users", "Users", "Admin")</li>
+        </ul>
+    </li>
+}
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Sales"))
+{
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href=@Url.Content("~/Sales/Inventory")>
+            Sales
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Inventory", "Index", "Sales")</li>
+        </ul>
+    </li>
+
+    <li></li>
+}
+

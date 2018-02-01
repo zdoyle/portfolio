@@ -1,0 +1,112 @@
+﻿@model GuildCars.UI.Models.ViewModels.MakesVM
+
+@{
+    ViewBag.Title = "Makes";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-12 col-md-6">
+            <h3 class="col-xs-12">
+                Makes in Stock
+            </h3>
+            <div class="col-xs-12">
+                <p class="text-warning">
+                    <em>
+                        This is a chart of all the vehicles we have in stock.  I put it here to show that I know how to do what the wireframes asked, but since I added in every make and model into a lookup table on the database side, "Make.Insert()" doesn't populate this list.  Instead, it populates the lookup table, which doesn't have the employee or date info.  See insert functionality below in stock table.
+                    </em>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div id="make-item-table-container" class="col-xs-12 col-md-6">
+            <div class="table-responsive">
+                <table id="user-table" class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="col-md-3">Make</th>
+                            <th class="col-md-3">Date Added</th>
+                            <th class="col-md-6">Employee</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var makeItems in Model.MakeItems)
+                        {
+                            <tr>
+                                <td>
+                                    @makeItems.Make
+                                </td>
+                                <td>
+                                    @makeItems.DateAdded.ToShortDateString()
+                                </td>
+                                <td>
+                                    @makeItems.Employee
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top:25px;">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("Makes", "Admin", FormMethod.Post, new { @class = "form-horizontal", @id = "add-make-form" }))
+            {
+            <div class="col-xs-offset-3 col-xs-6 col-md-offset-0 col-md-4">
+                <div class="form-group">
+                    <div class="col-xs-7">
+                        @Html.TextBoxFor(m => m.MakeName, new { @class = "form-control", @id = "add-make-box", @placeholder = "New Make" })
+                        <div class="text-danger">@Html.ValidationMessageFor(m => m.MakeName)</div>
+                    </div>
+                    <div class="col-xs-5">
+                        <input type="submit" class="btn btn-default col-xs-12" value="Add Make" />
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-offset-3 col-xs-6 col-md-offset-0 col-md-4">
+            <h3 class="col-xs-12">
+                Makes in System
+            </h3>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div id="make-item-table-container" class="col-xs-offset-3 col-xs-6 col-md-offset-0 col-md-4">
+            <div class="table-responsive">
+                <table id="user-table" class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-12">Make</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var make in Model.Makes)
+                        {
+                            <tr>
+                                <td>
+                                    @make.Name
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

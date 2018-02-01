@@ -1,0 +1,243 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Homepage Jumbotron Styles */
+
+.carousel-inner {
+    cursor: pointer;
+}
+
+#home-slider-container {
+    background: linear-gradient(
+                rgba(0, 0, 0, 0.4),
+ 	 	 	    rgba(0, 0, 0, 0.4)
+ 	 	 	    ), url('../Images/specialsBanner.jpg');
+ 	background-size: cover;
+}
+
+.carousel-inner .item {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    margin-bottom: 0;
+    min-height: 325px;
+}
+
+.item p,
+.item h1 {
+    color: #FFF;
+}
+
+
+.box {
+    background-color: gray;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.box-item > h1,
+.box-item p {
+    overflow: hidden;
+    color: #FFF;
+    text-shadow: 0.5px 0.5px 0.5px #000;
+}
+
+@media only screen and (max-width: 480px) {
+    #home-slider-container {
+        display: none; 
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    #specialsBoxes {
+        display: none; 
+    }
+}
+
+/* Homepage Featured Vehicles Styles */
+.featuredVehicles > div {
+    text-align: center;
+}
+
+.featuredVehicles > div > div > div {
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	transition: 0.2s;
+    margin-bottom: 25px;
+}
+
+.featuredVehicles > div > div:hover > div {
+	margin-top: -10px;
+	border: 1px solid rgb(200, 200, 200);
+	box-shadow: rgba(0, 0, 0, 0.1) 0 5px 5px 2px;
+	background: rgba(200, 200, 200, 0.1);
+	transition: 0.5s;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.featuredVehicles img {
+    height: 220px;
+    width: 275px;
+}
+
+.specialsLogo {
+    width: 150px;
+    height: auto;
+}
+
+.specialListGroupItems {
+    min-height: 225px;
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 10px;
+    margin-top:25px;
+    border-radius: 15px;
+    width: 100%;
+    position: relative;
+}
+
+.specialListGroupItems>div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.specials-text-container {
+    left: 200px;
+}
+
+.specialListGroupItems p {
+    font-size: medium;
+}
+
+.vehicle-details-table {
+    font-size: large
+}
+
+
+.colorBar {
+    padding-left: 28px;
+    font-size: 10px;
+    border: 1px solid black;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.vehicleImages {
+    width: 250px;
+    height: 150px;
+    margin-bottom: 25px;
+}
+
+.details-list-group-items-container {
+    min-height: 350px;
+    overflow: auto;
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 0 10px;
+    margin-top:25px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.detailsListGroupItems h2 {
+    margin-top: 0;
+    margin-bottom: 35px;
+}
+
+.detailsListGroupItems {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#contact-info-title {
+    font-weight: bold;
+    font-size: large;
+}
+
+.search-box-container {
+    border: 1px solid #000;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 35px;
+    overflow:auto;
+    padding: 10px;
+}
+
+.navbar-right {
+    padding-right: 10px;
+}
+
+#purchase-button,
+#edit-vehicle-button {
+    margin-top: 25px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display:block !important;
+    }
+    .navbar-header {
+        float:none;
+    }
+}
+
+@media (max-width: 991px) {
+    .model-dropdown-crazy {
+        display:none;
+    }
+}
+
+#purchase-form input,
+#purchase-form select,
+#add-vehicle-form input,
+#add-vehicle-form select,
+#add-vehicle-form textarea,
+#update-vehicle-form input,
+#update-vehicle-form select,
+#update-vehicle-form textarea,
+#browse-button,
+#delete-vehicle-form input {
+    margin-top: 10px;
+}
+
+#delete-vehicle-form input {
+    margin-left:15px;
+}
+
+#purchase-form h3 {
+    margin-top: 25px;
+}
+
+#update-vehicle-form label:nth-of-type(2n+1) {
+    padding-left: 0px;
+}
+
+/* validation summary */
+
+.validation-summary-errors ul{
+    padding-left: 15px;
+}
+
+.validation-summary-errors li {
+    list-style: none;
+    color: #a94442;
+}
+
+

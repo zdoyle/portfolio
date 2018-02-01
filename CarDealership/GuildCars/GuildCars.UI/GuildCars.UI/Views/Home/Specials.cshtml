@@ -1,0 +1,30 @@
+﻿@model GuildCars.UI.Models.ViewModels.SpecialVM
+
+@{
+    ViewBag.Title = "Specials";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+@*@Html.Partial("_SpecialsPartial", Model.Special) //this is the better way to do it, but Phil says I should have asked :*( *@
+
+<div class="row">
+    <div class="col-md-12" style="position:relative;">
+            @foreach (var special in Model.Specials)
+            {
+                <div class="specialListGroupItems">
+                    <div class="col-md-2 specials-logo-container">
+                        <img class="specialsLogo" src=@Url.Content("~/Images/specialsIcon.png") alt="Special Deal"/>
+                    </div>
+                    <div class="col-md-10 specials-text-container">
+                        <h2 class="text-left">@special.Title</h2>
+                        <p>@special.Description</p>
+                    </div>
+                </div>
+            }
+    </div>
+</div>

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<GuildCars.Models.Queries.SalesReportRequestItem>
+
+@{
+    ViewBag.Title = "Sales Report";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+@*fix this*@
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="search-box-container">
+            @using (Html.BeginForm("Sales", "Reports", FormMethod.Post, new { @class = "form-horizontal", @id = "sales-search-form" }))
+            {
+                <div class="col-xs-12">
+                    <h3 style="margin-top:10px;">Filters</h3>
+                </div>
+                <div class="col-xs-12">
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <label for="sales-employee-dropdown" class="col-xs-3 control-label">
+                                Employee:
+                            </label>
+                            <div class="col-xs-9">
+                                <select id="sales-employee-dropdown"
+                                        class="btn btn-default form-control">
+                                    <option selected disabled>Employee Name</option>
+                                    @foreach (var purchase in Model)
+                                    {
+                                        <option value="@purchase.EmployeeName">@purchase.EmployeeName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <label for="sales-from-date-box" class="col-xs-3 control-label">
+                                From Date:
+                            </label>
+                            <div class="col-xs-9">
+                                <input type="date"
+                                       id="sales-from-date-box"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <label for="sales-to-date-box" class="col-xs-3 control-label">
+                                To Date:
+                            </label>
+                            <div class="col-xs-9">
+                                <input type="date"
+                                       id="sales-to-date-box"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-5 col-xs-2" style="margin-top:15px;">
+                        <input type="button" id="sales-search-button" class="col-xs-12 btn btn-primary" value="Search" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-12">
+            <h3>Search Results</h3>
+        </div>
+        <div id="sales-report-container" class="col-xs-12 col-md-6">
+            <div class="table-responsive">
+                <table id="sales-report-table" class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="col-md-4">Employee</th>
+                            <th class="col-md-4">Total Sales</th>
+                            <th class="col-md-4">Total Vehicles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employee in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @employee.EmployeeName
+                                </td>
+                                <td>
+                                    @String.Format("{0:C2}", employee.TotalSales)
+                                </td>
+                                <td>
+                                    @employee.TotalVehicles
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

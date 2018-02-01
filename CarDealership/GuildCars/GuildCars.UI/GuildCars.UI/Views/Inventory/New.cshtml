@@ -1,0 +1,202 @@
+﻿@model IEnumerable<GuildCars.Models.Queries.VehicleRequestItem>
+
+@{
+    ViewBag.Title = "New Vehicles";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="search-box-container">
+            @using (Html.BeginForm("New", "Inventory", FormMethod.Post, new { @class = "form-horizontal", @id = "new-search-form" }))
+            {
+                <div class="col-xs-12">
+                    <h3 style="margin-top:10px;">Quick Search</h3>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input type="text"
+                                   id="new-quick-search-box"
+                                   class="form-control"
+                                   placeholder="Enter make, model, OR year" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label for="new-min-price-dropdown" class="col-xs-2 control-label">
+                            Price:
+                        </label>
+                        <div class="col-xs-5">
+                            <select id="new-min-price-dropdown"
+                                    class="btn btn-default form-control">
+                                <option value="0" selected>No Min</option>
+                                @for (int i = 500; i <= 100000; i += 500)
+                                {
+                                    <option value="@i">@String.Format("{0:C0}", i)</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-xs-5">
+                            <select id="new-max-price-dropdown"
+                                    class="btn btn-default form-control">
+                                <option value="150000" selected>No Max</option>
+                                @for (int i = 500; i <= 100000; i += 500)
+                                {
+                                    <option value="@i">@String.Format("{0:C0}", i)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label for="new-min-year-dropdown" class="col-xs-2 control-label">
+                            Year:
+                        </label>
+                        <div class="col-xs-5">
+                            <select id="new-min-year-dropdown"
+                                    class="btn btn-default form-control">
+                                <option value="1900" selected>No Min</option>
+                                @for (int i = 2000; i <= DateTime.Today.Year + 1; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-xs-5">
+                            <select id="new-max-year-dropdown"
+                                    class="btn btn-default form-control">
+                                <option value="3000" selected>No Max</option>
+                                @for (int i = 2000; i <= DateTime.Today.Year + 1; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-offset-5 col-xs-2" style="margin-top:15px;">
+                    <input type="button" id="new-search-button" class="col-xs-12 btn btn-primary" value="Search" />
+                </div>
+                <div class="col-xs-5" style="margin-top:15px;">
+                    <input type="button" id="new-reset-button" class="col-xs-3 pull-right btn btn-default" value="Reset" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="results-header text-left">Search Results</h2>
+    </div>
+    <div id="new-search-data-container-all" class="col-md-12">
+        @foreach (var vehicle in Model)
+        {
+            <div class="details-list-group-items-container">
+                <div class="detailsListGroupItems">
+                    <div class="col-xs-12">
+                        <h2 class="text-left">@vehicle.ModelYear @vehicle.Make @vehicle.Model</h2>
+                    </div>
+                    <div class="col-lg-3 col-xs-12 text-center">
+                        <div class="vehicleImages" style="background-image:url(@Url.Content("~/Images/" + vehicle.ImageFileName)); background-size: cover;"></div>
+                    </div>
+                    <div class="vehicle-details-table col-xs-12 col-lg-9">
+                        <div class="col-xs-2 col-lg-2">
+                            <div class="text-right">
+                                <p><strong>Body Style:</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-lg-2">
+                            <div class="text-left">
+                                <p>@vehicle.BodyStyle</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-lg-2">
+                            <div class="text-right">
+                                <p><strong>Interior:</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-lg-2">
+                            <div class="text-left">
+                                <p>@vehicle.InteriorColor <span class="colorBar" style="background-color:@vehicle.InteriorColorCode;"></span></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-lg-2">
+                            <div class="text-right">
+                                <p><strong>Sale Price:</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-lg-2">
+                            <div class="text-left">
+                                <p>@String.Format("{0:C0}", vehicle.SalePrice)</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-lg-2">
+                            <div class="text-right">
+                                <p><strong>Trans:</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-lg-2">
+                            <div class="text-left">
+                                <p>@vehicle.TransmissionType</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-lg-2">
+                            <div class="text-right">
+                                <p><strong>Mileage:</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-lg-2">
+                            <div class="text-left">
+                                <p>@(vehicle.Mileage < 1000 ? "New" : @String.Format("{0:n0}", vehicle.Mileage))</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-lg-2">
+                            <div class="text-right">
+                                <p><strong>MSRP:</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-lg-2">
+                            <div class="text-left">
+                                <p>@String.Format("{0:C0}", vehicle.MSRP)</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-lg-2">
+                            <div class="text-right">
+                                <p><strong>Color:</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-lg-2">
+                            <div class="text-left">
+                                <p>@vehicle.Color <span class="colorBar" style="background-color:@vehicle.ColorCode;"></span></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-lg-2">
+                            <div class="text-right">
+                                <p><strong>VIN #:</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 col-lg-6">
+                            <div class="text-left">
+                                <p>@vehicle.VIN</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-offset-8 col-xs-4">
+                            <div class="col-xs-12">
+                                <input type="button" id="vehicle-@vehicle.VehicleId-details-button" style="margin-top:15px;" class="btn btn-default col-xs-12 pull-right" value="Details" onclick="location.href='@Url.Action("Details", new { id = vehicle.VehicleId })'" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

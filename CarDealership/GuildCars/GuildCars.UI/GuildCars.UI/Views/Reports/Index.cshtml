@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Reports";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-md-3 col-sm-4">
+            <div class="list-group text-center">
+                @Html.ActionLink("Inventory Report", "Inventory", "Reports", new { @class = "list-group-item list-group-item-action" })
+                @Html.ActionLink("Sales Report", "Sales", "Reports", new { @class = "list-group-item list-group-item-action" })
+            </div>
+        </div>
+    </div>
+</div>

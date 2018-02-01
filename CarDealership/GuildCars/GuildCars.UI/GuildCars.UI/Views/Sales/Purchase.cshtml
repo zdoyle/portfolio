@@ -1,0 +1,218 @@
+﻿@using GuildCars.UI.Models.Extensions
+@model GuildCars.UI.Models.ViewModels.PurchaseVM
+
+@{
+    ViewBag.Title = "Purchase Vehicle";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">@ViewBag.Title</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="details-list-group-items-container">
+            <div class="detailsListGroupItems">
+                <div class="col-xs-12">
+                    <h2 class="text-left">@Model.Vehicle.ModelYear @Model.Vehicle.Make @Model.Vehicle.Model</h2>
+                </div>
+                <div class="col-lg-3 col-xs-12 text-center">
+                    <div class="vehicleImages" style="background-image:url(@Url.Content("~/Images/" + Model.Vehicle.ImageFileName)); background-size: cover;"></div>
+                </div>
+                <div class="vehicle-details-table col-xs-12 col-lg-9">
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Body Style:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@Model.Vehicle.BodyStyle</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Interior:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@Model.Vehicle.InteriorColor <span class="colorBar" style="background-color:@Model.Vehicle.InteriorColorCode;"></span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Sale Price:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@String.Format("{0:C0}", Model.Vehicle.SalePrice)</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Trans:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@Model.Vehicle.TransmissionType</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Mileage:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@(Model.Vehicle.Mileage < 1000 ? "New" : @String.Format("{0:n0}", Model.Vehicle.Mileage))</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>MSRP:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@String.Format("{0:C0}", Model.Vehicle.MSRP)</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>Color:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-2">
+                        <div class="text-left">
+                            <p>@Model.Vehicle.Color <span class="colorBar" style="background-color:@Model.Vehicle.ColorCode;"></span></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-lg-2">
+                        <div class="text-right">
+                            <p><strong>VIN #:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10 col-lg-6">
+                        <div class="text-left">
+                            <p>@Model.Vehicle.VIN</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="text-right">
+                            <p><strong>Description:</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="text-left">
+                            <p>@Model.Vehicle.Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("Purchase", "Sales", FormMethod.Post, new { @class = "form-horizontal", @id = "purchase-form" }))
+        {
+            <div style="margin-top:25px; margin-left:10px;">
+                @Html.ValidationSummary()
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <div class="col-xs-12"><h3>Sales Information</h3></div>
+                @Html.HiddenFor(m => m.VehicleId, new { @id = "vehicle-id-hidden" })
+                @*<input type="hidden" value="@Model.VehicleId" name="VehicleId" />*@
+                <input type="text" value="@Model.VehicleId" style="display:none;" name="VehicleId"/>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @id = "purchase-first-name", @placeholder = "First Name" })
+                        </div>
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @id = "purchase-last-name", @placeholder = "Last Name" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "email", @id = "purchase-email", @placeholder = "Email Address" })
+                        </div>
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @id = "purchase-phone", @placeholder = "Phone (10-digit # only)" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            @Html.TextBoxFor(m => m.StreetAddress1, new { @class = "form-control", @id = "purchase-street-address-1", @placeholder = "Street Address 1" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            @Html.TextBoxFor(m => m.StreetAddress2, new { @class = "form-control", @id = "purchase-street-address-2", @placeholder = "Street Address 2" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(m => m.City, new { @class = "form-control", @id = "purchase-city", @placeholder = "City" })
+                        </div>
+                        <div class="col-xs-3">
+                            @Html.DropDownListFor(m => m.StateId, Model.StateItems, "-State-", new { @class = "form-control btn btn-default", @id = "purchase-state-dropdown" })
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control", @id = "purchase-zip", @placeholder = "Zip Code" })
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12">
+                    <hr />
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="col-xs-4">
+                            @Html.HiddenFor(m => m.MSRP, new { @id = "msrp-hidden" })
+                            @Html.HiddenFor(m => m.SalePrice, new { @id = "sale-price-hidden" })
+                            @Html.TextBoxFor(m => m.PurchasePrice, new { @class = "form-control", @id = "purchase-price", @placeholder = "Purchase Price" })
+                        </div>
+                        <div class="col-xs-4">
+                            @Html.DropDownListFor(m => m.PurchaseTypeId, Model.PurchaseTypeItems, "-Purchase Type-", new { @class = "form-control btn btn-default", @id = "purchase-purchaseType-dropdown" })
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary pull-right" />
+            </div>
+
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#purchase-form select').each(function () {
+            $(this).children('option').first().prop('disabled', true);
+            //$(this).children('option').first().prop('selected', true);
+        });
+
+        $('#purchase-form input').not('input[type=submit]').not('#vehicle-id-hidden').not('#msrp-hidden').not('#sale-price-hidden').each(function () {
+            var thisInput = $(this);
+
+            if (thisInput.val() == '0') {
+                thisInput.val('');
+            }
+        });
+    });
+</script>
