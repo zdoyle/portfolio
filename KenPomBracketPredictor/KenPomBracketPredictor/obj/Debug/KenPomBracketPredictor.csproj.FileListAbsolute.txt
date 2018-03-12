@@ -1,0 +1,6 @@
+c:\users\zdoyle\documents\visual studio 2015\Projects\KenPomBracketPredictor\KenPomBracketPredictor\bin\Debug\KenPomBracketPredictor.exe.config
+c:\users\zdoyle\documents\visual studio 2015\Projects\KenPomBracketPredictor\KenPomBracketPredictor\bin\Debug\KenPomBracketPredictor.exe
+c:\users\zdoyle\documents\visual studio 2015\Projects\KenPomBracketPredictor\KenPomBracketPredictor\bin\Debug\KenPomBracketPredictor.pdb
+c:\users\zdoyle\documents\visual studio 2015\Projects\KenPomBracketPredictor\KenPomBracketPredictor\obj\Debug\KenPomBracketPredictor.csprojResolveAssemblyReference.cache
+c:\users\zdoyle\documents\visual studio 2015\Projects\KenPomBracketPredictor\KenPomBracketPredictor\obj\Debug\KenPomBracketPredictor.exe
+c:\users\zdoyle\documents\visual studio 2015\Projects\KenPomBracketPredictor\KenPomBracketPredictor\obj\Debug\KenPomBracketPredictor.pdb
